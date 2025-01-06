@@ -67,3 +67,7 @@ The loading="lazy" attribute is added to images to defer loading until they are 
 Fallback Mechanism
 A placeholder image is displayed when a product image fails to load.
 Error boundaries and fallback messages are implemented for robust error handling.
+
+
+Addition improvement 
+I can add redux for state management and also whole checkout flow
