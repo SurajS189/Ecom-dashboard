@@ -11,8 +11,6 @@ const ProductModal = ({ product, onClose }) => {
     setpresentImage(image)
   }
 
-  
-
   const handleError = () => {
     setpresentImage(Placeholder);
   }

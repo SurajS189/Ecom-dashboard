@@ -50,7 +50,6 @@ const ProductList = () => {
 
   useEffect(() => {
     const filtered = applyFilters(products, filters);
-    console.log(filtered, 'filtered')
     setFilteredProducts(filtered);
   }, [products, filters]);
 
