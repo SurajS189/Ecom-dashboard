@@ -35,6 +35,7 @@ const ProductModal = ({ product, onClose }) => {
           <div className={Styles.productDetails}>
             <h2 className={Styles.productTitle}>{product?.title}</h2>
             <p className={Styles.productDescription}>{product?.description}</p>
+            <p className={Styles.productCategory}> <strong>Brand:</strong>{product?.brand}</p>
             <RatingStars rating={product?.rating|| 0} />
             <p className={Styles.productPrice}>
               <strong>Price:</strong> ${product?.price}

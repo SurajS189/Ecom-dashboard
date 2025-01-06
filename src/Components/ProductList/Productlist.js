@@ -31,9 +31,9 @@ const ProductList = () => {
     }
     //filter for sorting
     if (filters.sortPrice === 'lowToHigh') {
-      filteredProducts.sort((a, b) => b.price - a.price);
-    } else if (filters.sortPrice === 'highToLow') {
       filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (filters.sortPrice === 'highToLow') {
+      filteredProducts.sort((a, b) => b.price - a.price);
     }
 
     return filteredProducts;
