@@ -1,0 +1,32 @@
+
+.thumbnailContainer {
+    display: flex;
+    gap: 8px;
+    overflow-x: none;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+.thumbnailContainer::-webkit-scrollbar {
+    height: 6px;
+}
+
+.thumbnailContainer::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover; 
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
