@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+E-Commerce Dashboard -https://surajs189.github.io/Ecom-dashboard/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a feature-rich e-commerce dashboard that enables users to browse, filter, and sort products dynamically. The architecture is designed with scalability and maintainability in mind, incorporating modern design patterns and best practices in frontend development.
 
-## Available Scripts
+Project Structure
 
-In the project directory, you can run:
+src/
+|-- assets/              # Contains static assets like images (e.g., placeholder.png).
+|-- components/          # Reusable React components.
+|   |--ProductModel/      # Contents the models 
+|   |-- ProductCard/     # Displays individual product details.
+|   |-- ProductList/     # Main product listing page.
+|   |-- Filter/          # Handles filtering and sorting of products.
+|   |-- Thumbnail/       # Manages product image thumbnails.
+|   |-- RatingStars/     # For review rating
+|-- utils/               # Utility functions (e.g., API calls).
+|-- App.js               # Main application component.
+|-- index.js             # Entry point for the React app.
 
-### `npm start`
+Features Implemented
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Dynamic Product Listing
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Products are displayed in a grid format with pagination and infinite scrolling.
 
-### `npm test`
+Lazy loading is implemented for images to optimize performance.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Filtering and Sorting
 
-### `npm run build`
+Products can be filtered by categories and price range.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Products can be sorted by price in ascending (low to high) or descending (high to low) order.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Product Modal
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clicking on a product opens a modal with detailed information.
 
-### `npm run eject`
+4. Thumbnail Management
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Allows users to preview product images via thumbnails.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Handles fallback to a placeholder image if the original image fails to load.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Error Handling
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Graceful fallback for API errors and image loading failures.
 
-## Learn More
+Displays appropriate messages when there are no products left or filters yield no results.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. Responsive Design
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Fully responsive layout using CSS modules.
 
-### Code Splitting
+Adaptive grid structure for different screen sizes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+7. Modern Design Patterns
 
-### Analyzing the Bundle Size
+Component-Based Design: Encapsulates functionality in reusable components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Container-Presenter Pattern: Separates business logic and UI rendering.
 
-### Making a Progressive Web App
+Lazy Loading: Optimizes image and component loading.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Getting Started
 
-### Advanced Configuration
+Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Ensure you have the following installed:
 
-### Deployment
+Node.js (v14 or later)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+npm or yarn
 
-### `npm run build` fails to minify
+Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1.Clone the repository:
+git clone https://github.com/your-username/ecommerce-dashboard.git
+cd ecommerce-dashboard
+
+2.Install dependencies:
+npm install
+# or
+yarn install
+
+Running the Application
+
+1.Start the development server: 
+  npm start
+
+APIs Used
+
+fetchProducts(page, limit): Fetches paginated products from the backend.
+fetchCategory:fetching all the category
+
+How It Works
+
+Filtering & Sorting
+
+Filters and sorting preferences are stored in the filters state.
+
+The applyFilters function dynamically applies category, price range, and sorting preferences to the product list.
+
+Infinite Scrolling
+
+The handleScroll function listens for scroll events to load more products when the user approaches the bottom of the page.
+
+Lazy Loading
+
+The loading="lazy" attribute is added to images to defer loading until they are visible in the viewport.
+
+Fallback Mechanism
+
+A placeholder image is displayed when a product image fails to load.
+
+Error boundaries and fallback messages are implemented for robust error handling.
+
+Future Enhancements
+
+Add user authentication and cart functionality.
+
+Integrate a global state management library like Redux or Context API for better sta
