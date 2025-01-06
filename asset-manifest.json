@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Ecom-dashboard/static/css/main.b967c6c5.css",
-    "main.js": "/Ecom-dashboard/static/js/main.110b2000.js",
+    "main.css": "/Ecom-dashboard/static/css/main.a2243b2c.css",
+    "main.js": "/Ecom-dashboard/static/js/main.ef273855.js",
     "static/js/488.ad8582d9.chunk.js": "/Ecom-dashboard/static/js/488.ad8582d9.chunk.js",
     "index.html": "/Ecom-dashboard/index.html",
-    "main.b967c6c5.css.map": "/Ecom-dashboard/static/css/main.b967c6c5.css.map",
-    "main.110b2000.js.map": "/Ecom-dashboard/static/js/main.110b2000.js.map",
+    "main.a2243b2c.css.map": "/Ecom-dashboard/static/css/main.a2243b2c.css.map",
+    "main.ef273855.js.map": "/Ecom-dashboard/static/js/main.ef273855.js.map",
     "488.ad8582d9.chunk.js.map": "/Ecom-dashboard/static/js/488.ad8582d9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b967c6c5.css",
-    "static/js/main.110b2000.js"
+    "static/css/main.a2243b2c.css",
+    "static/js/main.ef273855.js"
   ]
 }
