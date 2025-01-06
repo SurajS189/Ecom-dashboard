@@ -1,4 +1,4 @@
-E-Commerce Dashboard -https://surajs189.github.io/Ecom-dashboard/
+E-Commerce Dashboard- https://surajs189.github.io/Ecom-dashboard/
 
 This project is a feature-rich e-commerce dashboard that enables users to browse, filter, and sort products dynamically. The architecture is designed with scalability and maintainability in mind, incorporating modern design patterns and best practices in frontend development.
 

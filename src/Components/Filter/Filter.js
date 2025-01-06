@@ -70,9 +70,9 @@ const FilterComponent = ({ filters, onFilterChange, onResetFilters }) => {
                 <input
                   type="radio"
                   name="sortPrice"
-                  value="lowToHigh"
-                  checked={filters.sortPrice === "lowToHigh"}
-                  onChange={() => onFilterChange({ ...filters, sortPrice: "lowToHigh" })}
+                  value="asc"
+                  checked={filters.sortPrice === "asc"}
+                  onChange={() => onFilterChange({ ...filters, sortPrice: "asc" })}
                 />
                 Low to High
               </label>
@@ -80,9 +80,9 @@ const FilterComponent = ({ filters, onFilterChange, onResetFilters }) => {
                 <input
                   type="radio"
                   name="sortPrice"
-                  value="highToLow"
-                  checked={filters.sortPrice === "highToLow"}
-                  onChange={() => onFilterChange({ ...filters, sortPrice: "highToLow" })}
+                  value="dsc"
+                  checked={filters.sortPrice === "dsc"}
+                  onChange={() => onFilterChange({ ...filters, sortPrice: "dsc" })}
                 />
                 High to Low
               </label>
@@ -94,7 +94,7 @@ const FilterComponent = ({ filters, onFilterChange, onResetFilters }) => {
               type="range"
               min="0"
               max="50000"
-              step="100"
+              step="500"
               value={filters.priceRange}
               onChange={handlePriceChange}
               className={Styles.slider}

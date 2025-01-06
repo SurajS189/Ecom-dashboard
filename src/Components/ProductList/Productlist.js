@@ -13,7 +13,7 @@ const ProductList = () => {
   const [limit] = useState(10);
   const [modalProduct, setModalProduct] = useState(null);
   const [isOpen, setOpen] = useState(false);
-  const [filters, setFilters] = useState({ categories: [], priceRange: 50000 });
+  const [filters, setFilters] = useState({ categories: [], priceRange: 50000 ,sortPrice:'asc'});
   const [hasMore, setHasMore] = useState(true); // For no more products message
 
   // Apply filters to the products
@@ -30,9 +30,10 @@ const ProductList = () => {
       });
     }
     //filter for sorting
-    if (filters.sortPrice === 'lowToHigh') {
+    console.log(filters.sortPrice)
+    if (filters.sortPrice === 'asc') {
       filteredProducts.sort((a, b) => a.price - b.price);
-    } else if (filters.sortPrice === 'highToLow') {
+    } else if (filters.sortPrice === 'dsc') {
       filteredProducts.sort((a, b) => b.price - a.price);
     }
 
@@ -58,7 +59,7 @@ const ProductList = () => {
     if (loading || !hasMore) return; // Prevent duplicate calls
     setLoading(true);
     try {
-      const newProducts = await fetchProducts( limit,skip);
+      const newProducts = await fetchProducts( limit,skip,filters.sortPrice);
       if (newProducts?.products?.length === 0) {
         setHasMore(false); // No more products available
       } else {
