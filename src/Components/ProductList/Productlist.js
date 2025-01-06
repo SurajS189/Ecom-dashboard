@@ -9,11 +9,11 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
+  const [skip, setSkip] = useState(0);
   const [limit] = useState(10);
   const [modalProduct, setModalProduct] = useState(null);
   const [isOpen, setOpen] = useState(false);
-  const [filters, setFilters] = useState({ categories: [], priceRange: 500 });
+  const [filters, setFilters] = useState({ categories: [], priceRange: 50000 });
   const [hasMore, setHasMore] = useState(true); // For no more products message
 
   // Apply filters to the products
@@ -21,10 +21,10 @@ const ProductList = () => {
     // Apply filters
     let filteredProducts = products;
 
-    if (filters.categories.length || filters.priceRange !== 500) {
+    if (filters.categories.length || filters.priceRange !== 50000) {
       filteredProducts = products.filter((product) => {
         const categoryMatch =
-          !filters.categories.length || filters.categories.includes(product.category.name);
+          !filters.categories.length || filters.categories.includes(product.category);
         const priceMatch = product.price <= filters.priceRange;
         return categoryMatch && priceMatch;//returing the category and price match
       });
@@ -59,13 +59,12 @@ const ProductList = () => {
     if (loading || !hasMore) return; // Prevent duplicate calls
     setLoading(true);
     try {
-      const newProducts = await fetchProducts(page, limit);
-      if (newProducts.length === 0) {
+      const newProducts = await fetchProducts( limit,skip);
+      if (newProducts?.products?.length === 0) {
         setHasMore(false); // No more products available
       } else {
-        setProducts((prev) => [...prev, ...newProducts]);
-        console.log(newProducts, 'newProducts')
-        setPage((prev) => prev + 10);
+        setProducts((prev) => [...prev, ...newProducts.products]);
+        setSkip((prev) => prev + 10);
       }
     } catch (error) {
       console.error("Failed to load products", error);

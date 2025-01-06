@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Thumbnail from "../Thumbnail/Thumbnail";
+import RatingStars from "../RatingStars/RatingStars";
 import Placeholder from "../../assets/placeholder.png";
 import Styles from "./ProductModal.module.css";
 
@@ -36,11 +37,12 @@ const ProductModal = ({ product, onClose }) => {
           <div className={Styles.productDetails}>
             <h2 className={Styles.productTitle}>{product?.title}</h2>
             <p className={Styles.productDescription}>{product?.description}</p>
+            <RatingStars rating={product?.rating|| 0} />
             <p className={Styles.productPrice}>
               <strong>Price:</strong> ${product?.price}
             </p>
             <p className={Styles.productCategory}>
-              <strong>Category:</strong> {product?.category?.name}
+              <strong>Category:</strong> {product?.category}
             </p>
             <div className={Styles.buttonContainer}>
               <button className={Styles.addToCartButton}>Add to Cart</button>

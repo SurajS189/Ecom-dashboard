@@ -1,0 +1,21 @@
+.ratingStars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .star {
+    font-size: 18px;
+    color: #ffc107; /* Gold color for stars */
+  }
+  
+  .halfStar {
+    position: relative;
+    color: #ffc107;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+  }
+  
+  .emptyStar {
+    color: #ccc; /* Gray color for empty stars */
+  }
+  

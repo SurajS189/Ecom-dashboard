@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./Filter.module.css";
+import { fetchCategory } from "../../utils/categorylist";
 
 const FilterComponent = ({ filters, onFilterChange, onResetFilters }) => {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-
+  const [categoryList, setCategoryList] = useState([]);
   const categoryMap = {
     "ELECTRONICS": "Electronics",
     "CLOTHING": "Clothes",
@@ -12,6 +13,27 @@ const FilterComponent = ({ filters, onFilterChange, onResetFilters }) => {
     "MISCELLANEOUS": "Miscellaneous",
     "SHOES": "Shoes",
   };
+
+  const loadCategory = async () => {
+    
+      try {
+        const  categories = await fetchCategory();
+        const categoryArray = categories.map((category) => ({
+          key: category.toUpperCase(),
+          value: category
+        }));
+        setCategoryList(categoryArray)
+
+      } catch (error) {
+        console.error("Error fetching Category", error);
+        throw error;
+      }
+      
+    };
+
+  useEffect(() => {
+    loadCategory()
+  },[])
 
   const toggleFilters = () => {
     setIsFiltersOpen(!isFiltersOpen);
@@ -28,6 +50,11 @@ const FilterComponent = ({ filters, onFilterChange, onResetFilters }) => {
     onFilterChange({ ...filters, priceRange: e.target.value });
   };
 
+
+console.log(categoryList.map((cat)=>{
+  return cat.key
+}))
+
   return (
     <div className={Styles.filterContainer}>
       <button className={Styles.filterButton} onClick={toggleFilters}>
@@ -38,15 +65,15 @@ const FilterComponent = ({ filters, onFilterChange, onResetFilters }) => {
           <div className={Styles.filterSection}>
             <h3 className={Styles.filterTitle}>Categories:</h3>
             <div className={Styles.categoryList}>
-              {Object.entries(categoryMap)?.map(([key, value]) => (
-                <label key={value} className={Styles.categoryItem}>
+              {categoryList&&categoryList?.map((cat) => (
+                <label key={cat.value} className={Styles.categoryItem}>
                   <input
                     type="checkbox"
-                    value={value}
-                    checked={filters.categories.includes(value)}
-                    onChange={() => handleCategoryChange(value)}
+                    value={cat.value}
+                    checked={filters.categories.includes(cat.value)}
+                    onChange={() => handleCategoryChange(cat.value)}
                   />
-                  {key}
+                  {cat?.key}
                 </label>
               ))}
             </div>
@@ -81,8 +108,8 @@ const FilterComponent = ({ filters, onFilterChange, onResetFilters }) => {
             <input
               type="range"
               min="0"
-              max="500"
-              step="10"
+              max="50000"
+              step="100"
               value={filters.priceRange}
               onChange={handlePriceChange}
               className={Styles.slider}

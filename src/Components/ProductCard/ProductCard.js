@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import Thumbnail from "../Thumbnail/Thumbnail";
+import RatingStars from "../RatingStars/RatingStars.js";
 import Placeholder from "../../assets/placeholder.png";
 import LazyLoad from "react-lazyload";
 import styles from "./ProductCard.module.css";
@@ -32,8 +33,11 @@ const ProductCard = ({ product, handleModal }) => {
       <Thumbnail product={product} setSelectedImage={setSelectedImage} />
       <h3 className={styles.productTitle}>{product?.title}</h3>
       <div className={styles.productDetails}>
+      <div className={styles.ratingContainer}>
+            <RatingStars rating={product?.rating|| 0} />
+      </div>
         <p>Price: ${product?.price}</p>
-        <p>Category: {product?.category?.name}</p>
+       <p>Category: {product?.category}</p>
       </div>
     </div>
   );

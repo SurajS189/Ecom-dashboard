@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-export const fetchProducts = async (offset = 0, limit = 10) => {
+export const fetchProducts = async ( limit = 10,skip=0) => {
+  console.log(limit,skip)
   try {
-    const response = await axios.get(`https://api.escuelajs.co/api/v1/products`, {
-      params: { offset, limit }//fetching next  10 products
+    const response = await axios.get(`https://dummyjson.com/products`, {
+      params: {  limit,skip }//fetching next  10 products
     });
     return response.data;
   } catch (error) {

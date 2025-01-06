@@ -48,6 +48,8 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  overflow-y: scroll;
+  height: 300px;
 }
 
 .categoryItem {
